@@ -1,2 +1,2 @@
 # docker-ubuntu
-Base ubuntu images
+Base ubuntu images.
