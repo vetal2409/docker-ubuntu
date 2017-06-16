@@ -1,9 +1,11 @@
-FROM ubuntu:16.04
+FROM ubuntu:16.*
 
 MAINTAINER Vitalii Sydorenko <vetal.sydo@gmail.com>
 
-RUN locale-gen en_US.UTF-8
+ENV DEBIAN_FRONTEND noninteractive
 
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+# install dependency
+RUN apt-get update \
+    && apt-get install -y software-properties-common python-software-properties \
+    && apt-get install -y language-pack-en-base
+RUN LC_ALL=en_US.UTF-8 add-apt-repository -y ppa:ondrej/php
